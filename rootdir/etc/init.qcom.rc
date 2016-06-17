@@ -106,6 +106,8 @@ on boot
     mkdir /dev/socket/netmgr 0750 radio radio
 
     setprop wifi.interface wlan0
+	
+	mkdir /persist/bluetooth 0770 bluetooth bluetooth
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -328,9 +330,16 @@ on property:bluetooth.startbtsnoop=false
     stop btsnoop
 
 on property:vold.decrypt=trigger_restart_framework
+	start config_bt_addr
     start config_bluetooth
     start wcnss-service
 
+service config_bt_addr /system/bin/btnvtool -O
+    class core
+    user bluetooth
+    group bluetooth radio
+    oneshot
+ 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
