@@ -153,6 +153,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_profiles_8956.xml:system/etc/media_profiles_8956.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 PRODUCT_COPY_FILES += \
@@ -199,6 +200,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.target.rc \
     init.qcom.usb.rc \
+    init.qcom.power.rc \
     ueventd.qcom.rc
 
 # Sensors
@@ -253,3 +255,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
+
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    persist.radio.sib16_support=1 \
+    persist.radio.custom_ecc=1 \
+    persist.gps.qc_nlp_in_use=1 \
+    persist.loc.nlp_name=com.qualcomm.location \
+    ro.gps.agps_provider=1 \
+    persist.radio.calls.on.ims=0 \
+    persist.radio.jbims=0 \
+    persist.radio.csvt.enabled=false \
+    persist.radio.rat_on=combine \
+    persist.radio.mt_sms_ack=20 \
+    persist.radio.apm_sim_not_pwdn=1 \
+    sys.io.scheduler=bfq \
+    ro.sf.lcd_density=480

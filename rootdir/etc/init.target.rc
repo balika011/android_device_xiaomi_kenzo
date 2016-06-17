@@ -27,6 +27,8 @@
 #
 #
 
+import init.qcom.power.rc
+
 on fs
     wait /dev/block/bootdevice
     mount_all fstab.qcom
