@@ -109,13 +109,6 @@ persist.fuse_sdcard=true
 #snapdragon value add features
 #
 ro.qc.sdk.audio.ssr=false
-##fluencetype can be "fluence" or "fluencepro" or "none"
-ro.qc.sdk.audio.fluencetype=fluence
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=true
-persist.audio.fluence.speaker=true
-persist.audio.fluence.audiorec=false
-persist.audio.fluence.spk.mono=true
 #Set for msm8952
 tunnel.audio.encode=false
 #Buffer size in kbytes for compress offload playback
